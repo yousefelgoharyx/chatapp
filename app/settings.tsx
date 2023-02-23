@@ -26,7 +26,9 @@ const settings = () => {
       >
         General
       </Text>
+      <SettingsItem icon="user" title="Profile" />
       <SettingsItem icon="smartphone" title="Share Your Account" />
+      <SettingsItem icon="bell" title="Notifications" />
       <SettingsItem icon="shield" title="Security" />
       <SettingsItem icon="power" title="Sign out" />
     </Container>

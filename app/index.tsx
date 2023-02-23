@@ -1,16 +1,18 @@
 import React from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Container from "../src/ui/Container";
 import SearchInput from "../src/ui/SearchInput";
 import Contact from "../src/ui/Contact";
 import { useRouter } from "expo-router";
 import { getImage } from "../src/utils/getImage";
 import AppHead from "../src/ui/AppHead";
+import { useStyles, StylerFn } from "../src/utils/createStyles";
 
 const index = () => {
   const router = useRouter();
+  const styles = useStyles(styler);
   return (
-    <Container style={{ backgroundColor: "#fff" }}>
+    <Container style={styles.container}>
       <AppHead onSettingsPress={() => router.push("/settings")} />
       <SearchInput
         style={{ marginTop: 8 }}
@@ -94,4 +96,11 @@ const index = () => {
   );
 };
 
+const styler: StylerFn = (theme) => {
+  return StyleSheet.create({
+    container: {
+      backgroundColor: theme.background,
+    },
+  });
+};
 export default index;

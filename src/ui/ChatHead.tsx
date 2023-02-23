@@ -4,6 +4,7 @@ import ContactImage from "./Avatar";
 import Container from "./Container";
 import Text from "./Text";
 import Icon from "@expo/vector-icons/Feather";
+import Iconizer from "./Icon";
 
 type ChatHeadProps = {
   name: string;
@@ -16,7 +17,7 @@ const ChatHead = (props: ChatHeadProps) => {
     <View style={styles.header}>
       <Container style={styles.headerContainer}>
         <TouchableOpacity onPress={props.onBack}>
-          <Icon name="chevron-left" size={32} style={{ marginEnd: 4 }} />
+          <Iconizer name="chevron-left" size={32} style={{ marginEnd: 4 }} />
         </TouchableOpacity>
         <ContactImage image={props.image} />
         <View style={styles.infoContainer}>

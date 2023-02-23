@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    backgroundColor: "#fff",
   },
   heading: {
     fontSize: 28,

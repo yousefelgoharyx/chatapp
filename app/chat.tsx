@@ -6,6 +6,7 @@ import ChatHead from "../src/ui/ChatHead";
 import ChatMessage from "../src/ui/ChatMessage";
 import { getImage } from "../src/utils/getImage";
 import ChatBar from "../src/ui/ChatBar";
+import { StylerFn, useStyles, useTheme } from "../src/utils/createStyles";
 
 const msg = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat
 cumque natus quis necessitatibus vero, asperiores error incidunt
@@ -17,7 +18,8 @@ perspiciatis omnis nesciunt! Officia, commodi.`;
 const chat = () => {
   const router = useRouter();
   const scrollViewRef = useRef<ScrollView>();
-
+  const styles = useStyles(styler);
+  const theme = useTheme();
   return (
     <View style={{ flex: 1 }}>
       <ChatHead
@@ -32,6 +34,7 @@ const chat = () => {
         }
         ref={scrollViewRef}
         contentContainerStyle={styles.scrollView}
+        style={{ backgroundColor: theme.background }}
       >
         <Container>
           <ChatMessage text={msg} />
@@ -43,11 +46,12 @@ const chat = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    paddingBottom: 16,
-    backgroundColor: "#f4f4f4",
-  },
-});
+const styler: StylerFn = (theme) =>
+  StyleSheet.create({
+    scrollView: {
+      paddingBottom: 16,
+      backgroundColor: theme.background,
+    },
+  });
 
 export default chat;

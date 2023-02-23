@@ -1,21 +1,20 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import Container from "../src/ui/Container";
 import Input from "../src/ui/Input";
 import NextButton from "../src/ui/NextButton";
 import Text from "../src/ui/Text";
-import Icon from "@expo/vector-icons/Feather";
 import { useRouter } from "expo-router";
+import Iconizer from "../src/ui/Icon";
 const index = () => {
   const router = useRouter();
 
-  const handleLogin = () => router.push("/signin");
-
+  const handleSignup = () => router.push("/signin");
+  const handleLogin = () => router.push("/");
   return (
     <Container style={styles.container}>
       <Text weight="bold" style={styles.heading}>
         Sign up
       </Text>
-
       <Input hint="Name" placeholder="Yousef" style={{ marginBottom: 16 }} />
       <Input
         hint="Username"
@@ -23,15 +22,15 @@ const index = () => {
         style={{ marginBottom: 16 }}
       />
       <Input secureTextEntry placeholder="********" hint="Password" />
-      <NextButton onPress={() => {}} style={{ marginTop: 64 }} />
-      <TouchableOpacity style={styles.signup} onPress={handleLogin}>
-        <Icon name="log-in" size={24} />
+      <NextButton onPress={handleLogin} style={{ marginTop: 64 }} />
+      <TouchableOpacity style={styles.signup} onPress={handleSignup}>
+        <Iconizer name="log-in" size={24} />
         <Text
           weight="bold"
           size={18}
           style={{ marginStart: 8, textTransform: "uppercase" }}
         >
-          Login
+          Sign in
         </Text>
       </TouchableOpacity>
     </Container>
@@ -43,7 +42,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    backgroundColor: "#fff",
   },
   heading: {
     fontSize: 28,
