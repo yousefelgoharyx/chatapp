@@ -1,18 +1,13 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import Text from "./Text";
-
-type InputProps = {
-  hint: string;
-} & React.ComponentProps<typeof TextInput>;
-const Input = (props: InputProps) => {
-  const { hint, style, ...rest } = props;
+import Icon from "@expo/vector-icons/Feather";
+type InputProps = React.ComponentProps<typeof TextInput>;
+const SearchInput = (props: InputProps) => {
+  const { style, ...rest } = props;
   return (
     <View style={[styles.inputWrapper, style]}>
       <TextInput style={styles.input} cursorColor="#000" {...rest} />
-      <View style={styles.hintWrapper}>
-        <Text weight="bold" style={styles.hint}>
-          {hint}
-        </Text>
+      <View style={styles.iconWrapper}>
+        <Icon name="search" size={24} />
       </View>
     </View>
   );
@@ -21,7 +16,7 @@ const Input = (props: InputProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ff3",
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
@@ -29,27 +24,23 @@ const styles = StyleSheet.create({
   inputWrapper: {
     width: "100%",
     position: "relative",
+    backgroundColor: "#eaeaea",
+    overflow: "hidden",
     height: 56,
-    borderWidth: 2,
-    borderColor: "black",
     borderRadius: 56 / 2,
   },
   input: {
-    height: 56,
     width: "100%",
     paddingHorizontal: 24,
+    height: 56,
     fontFamily: "poppins-regular",
+    paddingLeft: 24 + 16 + 8,
+    marginTop: 2,
   },
-  hintWrapper: {
+  iconWrapper: {
     position: "absolute",
-    paddingHorizontal: 4,
-    top: -10,
-    left: 20,
-    backgroundColor: "#fff",
-  },
-  hint: {
-    fontSize: 12,
-    color: "black",
+    top: 16,
+    left: 16,
   },
 });
-export default Input;
+export default SearchInput;

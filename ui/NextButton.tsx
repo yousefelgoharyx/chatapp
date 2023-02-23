@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
+import Icon from "@expo/vector-icons/Feather";
 type NextButtonProps = {
     onPress: () => void;
 } & React.ComponentProps<typeof TouchableOpacity>;
