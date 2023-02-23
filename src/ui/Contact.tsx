@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router";
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import ContactImage from "./ContactImage";
+import ContactImage from "./Avatar";
 import Text from "./Text";
 
 type ContactProps = {

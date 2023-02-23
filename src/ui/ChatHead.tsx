@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import ContactImage from "./ContactImage";
+import ContactImage from "./Avatar";
 import Container from "./Container";
 import Text from "./Text";
 import Icon from "@expo/vector-icons/Feather";

@@ -1,10 +1,13 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Icon from "@expo/vector-icons/Feather";
 import Text from "./Text";
 import { useRouter } from "expo-router";
 
-const AppHead = () => {
+type Props = {
+  onSettingsPress?: () => void;
+};
+const AppHead = (props: Props) => {
   const router = useRouter();
   return (
     <View style={styles.header}>
@@ -12,6 +15,9 @@ const AppHead = () => {
         Chats
       </Text>
       <View style={styles.headerIcons}>
+        <TouchableOpacity onPress={props.onSettingsPress}>
+          <Icon name="settings" size={24} style={{ marginEnd: 8 }} />
+        </TouchableOpacity>
         <Icon name="external-link" size={24} style={{ marginEnd: 8 }} />
         <Icon name="plus" size={24} />
       </View>

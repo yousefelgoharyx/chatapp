@@ -5,7 +5,7 @@ type Props = {
   image: string;
   size?: number;
 };
-const ContactImage = (props: Props) => {
+const Avatar = (props: Props) => {
   const { image, size = 75 } = props;
   return (
     <View
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactImage;
+export default Avatar;

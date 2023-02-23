@@ -1,8 +1,6 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView } from "react-native";
 import Container from "../src/ui/Container";
-import Text from "../src/ui/Text";
-import Icon from "@expo/vector-icons/Feather";
 import SearchInput from "../src/ui/SearchInput";
 import Contact from "../src/ui/Contact";
 import { useRouter } from "expo-router";
@@ -13,7 +11,7 @@ const index = () => {
   const router = useRouter();
   return (
     <Container style={{ backgroundColor: "#fff" }}>
-      <AppHead />
+      <AppHead onSettingsPress={() => router.push("/settings")} />
       <SearchInput
         style={{ marginTop: 8 }}
         placeholder="Search for chat and messages"
