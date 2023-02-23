@@ -1,12 +1,7 @@
 import { useRouter } from "expo-router";
 import React from "react";
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import ContactImage from "./ContactImage";
 import Text from "./Text";
 
 type ContactProps = {
@@ -17,28 +12,14 @@ type ContactProps = {
   unread?: boolean;
 };
 
-const Contact = ({
-  name,
-  message,
-  image,
-  iam = false,
-  unread = false,
-}: ContactProps) => {
+const Contact = (props: ContactProps) => {
+  const { name, message, image, iam = false, unread = false } = props;
   const router = useRouter();
   return (
-    <TouchableOpacity onPress={() => router.push("/signup")}>
+    <TouchableOpacity onPress={() => router.push("/chat")}>
       <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image source={{ uri: image, width: 75, height: 75 }} />
-        </View>
-        <View
-          style={{
-            marginStart: 8,
-            overflow: "hidden",
-            flexShrink: 1,
-            marginEnd: 34,
-          }}
-        >
+        <ContactImage image={image} />
+        <View style={styles.infoContainer}>
           <Text weight="bold" size={18} style={{ lineHeight: 24 }}>
             {name}
           </Text>
@@ -64,12 +45,12 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     marginBottom: 16,
   },
-  imageContainer: {
-    width: 75,
-    height: 75,
-    borderRadius: 75 / 2,
+
+  infoContainer: {
+    marginStart: 8,
     overflow: "hidden",
-    backgroundColor: "#eaeaea",
+    flexShrink: 1,
+    marginEnd: 34,
   },
 });
 

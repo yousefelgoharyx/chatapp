@@ -5,6 +5,17 @@
       "bundler": "metro"
     },
     "name": "chatapp",
-    "slug": "chatapp"
+    "slug": "chatapp",
+    "extra": {
+      "eas": {
+        "projectId": "6dd5cd17-516e-4253-8e96-6c29d4022099"
+      }
+    },
+    "android": {
+      "package": "com.yousefelgoharyx.chatapp"
+    },
+    "ios": {
+      "bundleIdentifier": "com.yousefelgoharyx.chatapp"
+    }
   }
 }

@@ -1,27 +1,19 @@
-import { Link } from "expo-router";
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import Container from "../ui/Container";
-import Text from "../ui/Text";
+import Container from "../src/ui/Container";
+import Text from "../src/ui/Text";
 import Icon from "@expo/vector-icons/Feather";
-import SearchInput from "../ui/SearchInput";
-import Contact from "../ui/Contact";
-function getImage(name: string, color: string) {
-  return `https://api.dicebear.com/5.x/adventurer/png?seed=${name}&backgroundColor=${color}`;
-}
-const index = () => {
-  return (
-    <Container>
-      <View style={styles.header}>
-        <Text weight="bold" size={32}>
-          Chats
-        </Text>
-        <View style={styles.headerIcons}>
-          <Icon name="external-link" size={24} style={{ marginEnd: 8 }} />
-          <Icon name="plus" size={24} />
-        </View>
-      </View>
+import SearchInput from "../src/ui/SearchInput";
+import Contact from "../src/ui/Contact";
+import { useRouter } from "expo-router";
+import { getImage } from "../src/utils/getImage";
+import AppHead from "../src/ui/AppHead";
 
+const index = () => {
+  const router = useRouter();
+  return (
+    <Container style={{ backgroundColor: "#fff" }}>
+      <AppHead />
       <SearchInput
         style={{ marginTop: 8 }}
         placeholder="Search for chat and messages"
@@ -104,15 +96,4 @@ const index = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  header: {
-    marginTop: 16,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  headerIcons: {
-    flexDirection: "row",
-  },
-});
 export default index;

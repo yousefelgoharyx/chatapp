@@ -42,10 +42,11 @@ const styles = StyleSheet.create({
   },
   hintWrapper: {
     position: "absolute",
-    paddingHorizontal: 4,
+    paddingHorizontal: 6,
     top: -10,
     left: 20,
     backgroundColor: "#fff",
+    borderRadius: 8,
   },
   hint: {
     fontSize: 12,

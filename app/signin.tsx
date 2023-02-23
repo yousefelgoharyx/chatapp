@@ -1,8 +1,8 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
-import Container from "../ui/Container";
-import Input from "../ui/Input";
-import NextButton from "../ui/NextButton";
-import Text from "../ui/Text";
+import Container from "../src/ui/Container";
+import Input from "../src/ui/Input";
+import NextButton from "../src/ui/NextButton";
+import Text from "../src/ui/Text";
 import Icon from "@expo/vector-icons/Feather";
 import { useRouter } from "expo-router";
 const index = () => {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
+    backgroundColor: "#fff",
   },
   heading: {
     fontSize: 28,
